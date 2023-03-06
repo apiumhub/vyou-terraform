@@ -15,6 +15,7 @@ resource "helm_release" "vyou_services" {
   repository = "https://apiumhub.github.io/vyou-helm-charts"
   version    = "1.0.0"
   namespace  = "default"
+  timeout    = "900"
 
   set {
     name  = "core.targetPlatform"
