@@ -6,11 +6,6 @@ provider "aws" {
 terraform {
   required_version = "~> 1.1.5"
 
-  backend "s3" {
-    workspace_key_prefix = "terraform-states"
-    key                  = "infra.tfstate"
-  }
-
   required_providers {
     kubectl = {
       source = "gavinbunney/kubectl"
