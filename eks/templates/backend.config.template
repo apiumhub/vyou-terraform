@@ -1,0 +1,6 @@
+# AWS profile to use
+profile=""
+# AWS region for backend S3 bucket
+region=""
+# Backend S3 bucket name
+bucket=""

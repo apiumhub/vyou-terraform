@@ -1,2 +1,3 @@
-# vyou-terraform
+# VYou Terraform
+
 VYou Terraform modules

@@ -1,0 +1,31 @@
+{
+  "backend": {
+    "proxyPass": "http://backend:8080",
+    "gatewayProxyPass": "http://YOUR_BACKEND_K8S_SERVICE_NAME.YOUR_BACKEND_K8S_NAMESPACE:8081"
+  },
+  "backoffice": {
+    "listen": 6120,
+    "serverName": "PUT_YOUR_VYOU_SUBDOMAIN_NAME_HERE",
+    "ssl": {
+      "fullchain": "/etc/vyou/fullchain.pem",
+      "chain": "/etc/vyou/chain.pem",
+      "privkey": "/etc/vyou/privkey.pem"
+    },
+    "frameAncestors": [
+      "https://PUT_YOUR_FRONTEND_(SUB)DOMAIN_NAME_HERE"
+    ]
+  },
+  "front": [
+    {
+      "listen": 443,
+      "serverName": "PUT_YOUR_FRONTEND_(SUB)DOMAIN_NAME_HERE",
+      "ssl": {
+        "fullchain": "/etc/vyou/fullchain.pem",
+        "chain": "/etc/vyou/chain.pem",
+        "privkey": "/etc/vyou/privkey.pem"
+      },
+      "proxyPass": "http://YOUR_FRONTEND_K8S_SERVICE_NAME.YOUR_FRONTEND_K8S_NAMESPACE:80",
+      "frameAncestors": []
+    }
+  ]
+}
