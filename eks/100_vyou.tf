@@ -125,18 +125,18 @@ resource "helm_release" "vyou_services" {
   }
   set {
     name  = "proxy.nginxJson"
-    value = filebase64("${path.module}/nginx.json")
+    value = filebase64("${path.root}/nginx.json")
   }
   set {
     name  = "proxy.sslChain"
-    value = filebase64("${path.module}/chain.pem")
+    value = filebase64("${path.root}/chain.pem")
   }
   set {
     name  = "proxy.sslFullchain"
-    value = filebase64("${path.module}/fullchain.pem")
+    value = filebase64("${path.root}/fullchain.pem")
   }
   set {
     name  = "proxy.sslKey"
-    value = filebase64("${path.module}/key.pem")
+    value = filebase64("${path.root}/key.pem")
   }
 }
