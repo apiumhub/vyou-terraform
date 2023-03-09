@@ -89,7 +89,7 @@ resource "time_sleep" "alb_deletion_trigger" {
 }
 
 resource "helm_release" "lb_controller" {
-  depends_on = [time_sleep.alb_deletion_trigger]
+  depends_on = [time_sleep.alb_deletion_trigger, aws_acm_certificate.vyou_ssl_cert]
   name       = "aws-load-balancer-controller"
   chart      = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"
